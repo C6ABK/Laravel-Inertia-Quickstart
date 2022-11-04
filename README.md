@@ -21,7 +21,7 @@
   </body>
 </html>
 ```
-- `php artisan inertia:middelware`
+- `php artisan inertia:middleware`
 - Go to **app/Http/Kernel.php** and add the following to the **web** middleware group...
 `HandleInertiaRequests::class`
 
