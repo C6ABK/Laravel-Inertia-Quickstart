@@ -74,6 +74,6 @@ content: [
 ## Create first page
 - Go to **web.php** and replace `return view('welcome');` with `return inertia('welcome');`
 - Create **welcome.vue** in the **Pages** directory
-- Populate **welcome.vue** to test `<h1 class="text-3xl font-bold">Hello World</h1>`
+- Populate **welcome.vue** to test `<h1 class="text-3xl text-pink-700 font-bold">Hello World</h1>`
 - `npx mix watch`
 - `php artisan serve`
