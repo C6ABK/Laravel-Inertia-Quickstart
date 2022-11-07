@@ -83,7 +83,7 @@ content: [
 * Some duplication here solved with layout files later
 - User the code below to import the Inertia Link component
 ```
-import { Link } frin '@inertiajs/inertia-vue3';
+import { Link } from '@inertiajs/inertia-vue3';
 
 export default {
   components: { Link }
