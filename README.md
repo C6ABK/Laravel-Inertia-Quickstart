@@ -78,3 +78,30 @@ content: [
 - Populate **welcome.vue** to test `<h1 class="text-3xl text-pink-700 font-bold">Hello World</h1>`
 - `npx mix watch`
 - `php artisan serve`
+
+## Inertia Links I
+* Some duplication here solved with layout files later
+- User the code below to import the Inertia Link component
+```
+import { Link } frin '@inertiajs/inertia-vue3';
+
+export default {
+  components: { Link }
+};
+```
+- Create **Shared** directory in **resources/js**
+- Create **Nav.vue**
+- Add the **Link** importy as above
+- Go to a main page you want the nav bar to be shown on and import as below
+
+```
+import Nav from "../Shared/Nav"
+
+export default {
+  components: { Nav }
+}
+```
+- Use `<Nav />` to show navbar component
+
+## Inertia Links II
+
