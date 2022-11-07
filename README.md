@@ -104,4 +104,18 @@ export default {
 - Use `<Nav />` to show navbar component
 
 ## Inertia Links II
+- Turning a link into a post request, for a log out route for example, requires adding the method to the link as below
+`<Link href="/logout" method="POST" as="button">Log Out</Link>`
+- Rendering as a button stops an error when trying to open the post link in a new tab
+- Using Tailwind will remove the default button styling automatically
 
+## Inertia Links III
+- Bind data to a link using the data property
+`<Link href="/logout" method="POST" as="button" :data="{ foo: 'bar' }">Log Out</Link>`
+- Get the data on server side as below
+`dd(request('foo'));`
+
+## Inertia Links IV - Preserve Scroll
+- Add the `preserve-scroll` property to a link to maintain the scroll position
+
+## Inertia Links V - Navlinks & Active Links
