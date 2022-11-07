@@ -26,6 +26,7 @@
 `HandleInertiaRequests::class`
 
 ## Client Side Inertia Setup
+- Check your npm version before proceeding
 - `npm install @inertiajs/inertia @inertiajs/inertia-vue3`
 - `npm install vue@next`
 - Go to **resources/js**
