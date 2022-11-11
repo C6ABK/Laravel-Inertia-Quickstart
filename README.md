@@ -73,9 +73,9 @@ content: [
 ```
 
 ## Create first page
-- Go to **web.php** and replace `return view('welcome');` with `return inertia('welcome');`
-- Create **welcome.vue** in the **Pages** directory
-- Populate **welcome.vue** to test `<h1 class="text-3xl text-pink-700 font-bold">Hello World</h1>`
+- Go to **web.php** and replace `return view('welcome');` with `return inertia('Welcome');`
+- Create **Welcome.vue** in the **Pages** directory
+- Populate **Welcome.vue** to test `<h1 class="text-3xl text-pink-700 font-bold">Hello World</h1>`
 - `npx mix watch`
 - `php artisan serve`
 
@@ -119,3 +119,88 @@ export default {
 - Add the `preserve-scroll` property to a link to maintain the scroll position
 
 ## Inertia Links V - Navlinks & Active Links
+- Create a new component in **Shared** called **NavLink.vue**
+- Add the home NavLink to your Nav
+
+`<NavLink href="/" :active="$page.component === 'Home'">Home</NavLink>`
+
+- Go to **NavLink.vue** and add your existing Link code
+
+```
+<template>
+  <Link
+    :class="{ 'font-bold underline':active }"
+  >
+    <slot />
+  </Link>
+</template>
+<script>
+  import { Link } from "@inertiajs/inertia-vue3";
+  
+  export default {
+    components: { Link },
+    props: {
+      active: Boolean
+    }
+  }
+</script>
+```
+
+- Go back to the Nav and import the NavLink component
+
+```
+import NavLink from "./NavLink";
+
+export default {
+  components: { NavLink },
+}
+```
+
+## Progress Indicators
+- Go to resources/js/app.js
+- `import { InertiaProgress } from 'inertiajs/progress `
+- Add the code below at the bottom of **app.js**, change options as required
+
+```
+InertiaProgress.init({
+  color: 'red',
+  showSpinner: true,
+});
+```
+
+## Layout Files
+- Create **Layout.vue** in the **Shared** directory
+- Import the **Nav** in **Layout**
+
+```
+import Nav from "./Nav"
+
+export default {
+  components: { Nav },
+}
+```
+
+- Add the content to the Layout template
+
+```
+<template>
+  <header>
+    <h1>App Title</h1>
+    <Nav />
+  </header>
+  <slot />
+</template>
+```
+
+- Import the layout on your main pages
+
+```
+import Layout from "../Shared/Layout";
+
+export default {
+  components: { Layout },
+}
+```
+
+- Wrap everything in your main page templates in the `<Layout>` and `</Layout>` tags
+- Remove the <Nav /> on the main pages (your layout file will include it automatically)
